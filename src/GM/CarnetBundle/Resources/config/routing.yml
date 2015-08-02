@@ -1,15 +1,3 @@
-gm_carnet_accueil:
-    path:      /
-    defaults:  { _controller: GMCarnetBundle:Carnet:accueil}
-
-gm_utilisateur_profil:
-    path:      /profil
-    defaults:  { _controller: GMUtilisateurBundle:Utilisateur:profil}
-
-gm_utilisateur_edit:
-    path:      /profil/edit
-    defaults:  { _controller: GMUtilisateurBundle:Utilisateur:editProfil}
-
 gm_carnet_liste:
     path:      /liste
     defaults:  { _controller: GMCarnetBundle:Carnet:liste}

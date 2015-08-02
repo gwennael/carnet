@@ -1,0 +1,7 @@
+gm_utilisateur_profil:
+    path:      /profil
+    defaults:  { _controller: GMUtilisateurBundle:Utilisateur:profil}
+
+gm_utilisateur_edit:
+    path:      /profil/edit
+    defaults:  { _controller: GMUtilisateurBundle:Utilisateur:editProfil}

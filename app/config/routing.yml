@@ -1,6 +1,10 @@
 accueil:
-    pattern:   /accueil
+    pattern:   /
     defaults:  { _controller: GMCarnetBundle:Carnet:accueil }
+
+gm_utilisateur:
+    resource: "@GMUtilisateurBundle/Resources/config/routing.yml"
+    prefix:   /
 
 gm_carnet:
     resource: "@GMCarnetBundle/Resources/config/routing.yml"

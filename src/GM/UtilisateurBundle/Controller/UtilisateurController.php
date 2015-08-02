@@ -71,7 +71,7 @@ class UtilisateurController extends Controller
 			$eManager->persist($liste);
 			$eManager->flush();
 			
-			$request->getSession()->getFlashBag()->add('notice', 'Enregistrement de l\'utilisateur réussi');
+			$request->getSession()->getFlashBag()->add('notice', 'Enregistrement réussi ! Vous pouvez dès à présent vous connectez pour profiter de l\'application.');
 			
 			return $this->redirect($this->generateUrl('accueil'));
 		}
@@ -102,7 +102,6 @@ class UtilisateurController extends Controller
 		$formulaire = $this->createForm(new UtilisateurEditType(), $utilisateur);
 
 		if ($formulaire->handleRequest($request)->isValid()) {
-		  // Inutile de persister ici, Doctrine connait déjà notre annonce
 		  $eManager->flush();
 
 		  $request->getSession()->getFlashBag()->add('notice', 'Profil utilisateur modifié.');
@@ -112,7 +111,7 @@ class UtilisateurController extends Controller
 
 		return $this->render('GMUtilisateurBundle:Utilisateur:editProfil.html.twig', array(
 		  'formulaire'   => $formulaire->createView(),
-		  'utilisateur' => $utilisateur // Je passe également l'annonce à la vue si jamais elle veut l'afficher
+		  'utilisateur' => $utilisateur 
 		));
 	}
 }

@@ -36,17 +36,21 @@
 		<div class="well col-lg-9">	
 			
 			{% for flashMessage in app.session.flashbag.get('notice') %}
-				<div class="flash-notice alert-success">
+				<div class="flash-notice alert alert-success">
 					{{ flashMessage }}
 				</div>
-				<br/>
 			{% endfor %}
 			
 			{% for flashMessage in app.session.flashbag.get('fail') %}
-				<div class="flash-notice alert-info">
+				<div class="flash-notice alert alert-info">
 					{{ flashMessage }}
 				</div>
-				<br/>
+			{% endfor %}
+			
+			{% for flashMessage in app.session.flashbag.get('erreur') %}
+				<div class="flash-notice alert alert-danger">
+					{{ flashMessage }}
+				</div>
 			{% endfor %}
 			
 			<h4>Saisissez le contact:</h4>

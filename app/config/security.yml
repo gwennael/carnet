@@ -28,15 +28,15 @@ security:
                 login_path: login
                 check_path: login_check
                 always_use_default_target_path: false
-                default_target_path:            /accueil
+                default_target_path:            /
                 target_path_parameter:          _target_path
                 use_referer:                    false
             logout:
                 path:   logout
-                target: /accueil
+                target: /
 
     access_control:
-        - { path: ^/accueil, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/login, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/inscription, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/, role: ROLE_USER }
