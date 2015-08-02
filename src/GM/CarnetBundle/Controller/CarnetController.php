@@ -9,7 +9,6 @@ use Symfony\Bridge\Twig\AppVariable;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 use GM\CarnetBundle\Form\ListeType;
-use GM\CarnetBundle\Form\CarnetType;
 use GM\CarnetBundle\Entity\Carnet;
 use GM\CarnetBundle\Entity\Liste;
 use GM\CarnetBundle\Entity\CarnetListe;
@@ -35,18 +34,14 @@ class CarnetController extends Controller
 		$idCarnet = $eManager->getRepository('GMCarnetBundle:Carnet')->getIdCarnet($utilisateur->getUsername());
 		
 		$listeCarnetObjet = $eManager->getRepository('GMCarnetBundle:CarnetListe')->findByCarnet($idCarnet);
-		// var_dump($listeCarnetObjet);
 		
 		$listeCarnet = array();
-		for ($i = 0; $i <sizeof($listeCarnetObjet); $i++) {
+		$taille = sizeof($listeCarnetObjet);
+		for ($i = 0; $i < $taille; $i++) {
 			$listeCarnet[$i] = $listeCarnetObjet[$i]->getListe()->getName();
 		}
-
-		// var_dump($listeCarnet);
 		
 		usort($listeCarnet, "strcasecmp");
-		
-		// var_dump($listeCarnet);
 		
 		return $this->render('GMCarnetBundle:Carnet:carnet.html.twig', array(
 			'listeCarnet'  => $listeCarnet,));
@@ -91,7 +86,7 @@ class CarnetController extends Controller
 				return $this->redirect($this->generateUrl('gm_carnet_ajouter'));
 			}
 			
-			if($verifPresenceBdd != null){
+			if($verifPresenceBdd !== null){
 				$request->getSession()->getFlashBag()->add('fail', 'Vous ne pouvez pas ajouter 2 fois un même contact !');
 			
 				return $this->redirect($this->generateUrl('gm_carnet_ajouter'));
@@ -138,8 +133,9 @@ class CarnetController extends Controller
 		$listeCarnetObjet = $eManager->getRepository('GMCarnetBundle:CarnetListe')->findByCarnet($idCarnet);		
 		
 		$listeCarnet = array();
+		$taille = sizeof($listeCarnetObjet);
 		
-		for ($i = 0; $i <sizeof($listeCarnetObjet); $i++) {
+		for ($i = 0; $i < $taille; $i++) {
 			$listeCarnet[$i] = $listeCarnetObjet[$i]->getListe()->getName();
 		}
 		
@@ -156,7 +152,6 @@ class CarnetController extends Controller
 		if (isset($_POST['suppression']))
 		{
 			$suppression = $_POST['suppression'];
-			// var_dump($suppression);
 		}
 		
 		return $this->render('GMCarnetBundle:Carnet:confirm.html.twig', array(
@@ -170,7 +165,9 @@ class CarnetController extends Controller
 		$utilisateur = $eManager->getRepository('GMUtilisateurBundle:Utilisateur')->find($this->getUser()->getId());
 		$nomUtilisateur = $utilisateur->getUsername();
 		
-		for($i=0;$i<sizeof($suppression);$i++){
+		$taille = sizeof($suppression);
+		
+		for($i=0;$i<$taille;$i++){
 			$contactSup = ''.$nomUtilisateur.$suppression[$i];
 			echo $contactSup;
 			
@@ -182,5 +179,4 @@ class CarnetController extends Controller
 		
 		return $this->redirect($this->generateUrl('gm_carnet_liste'));
 	}
-
 }

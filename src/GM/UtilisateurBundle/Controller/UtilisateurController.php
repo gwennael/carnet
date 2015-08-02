@@ -41,8 +41,6 @@ class UtilisateurController extends Controller
 		$formulaire = $this->createForm(new UtilisateurType(), $utilisateur);
 		
 		if($formulaire->handleRequest($request)->isValid()){
-			// $mdpCrypte = md5($utilisateur->getPassword());
-			// $utilisateur->setPassword($mdpCrypte);
 			
 			$password = $encoder->encodePassword($utilisateur->getPassword(), $utilisateur->getSalt());
 			$utilisateur->setPassword($password);
