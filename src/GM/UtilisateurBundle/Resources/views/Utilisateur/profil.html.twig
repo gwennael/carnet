@@ -1,0 +1,43 @@
+{% extends "GMCarnetBundle::layout.html.twig" %}
+
+{% block title %}
+  Mon profil - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+	<br/>
+	<br/>
+	
+	<div class="row col-lg-offset-0">
+		<h1>Votre profil</h1>
+	</div>
+	
+	<br/>
+	<div class="well">
+	
+		{% for flashMessage in app.session.flashbag.get('notice') %}
+			<div class="flash-notice alert-success">
+				{{ flashMessage }}
+			</div>
+			<br/>
+		{% endfor %}
+		
+		
+		<ul class="list-unstyled">
+			<li><b>Nom d'utilisateur:</b> {{ '  '~app.user.username }}</li>
+			<li><b>E-mail:</b> {{ app.user.email }}</li>
+			<li><b>Adresse postale:</b> {{ app.user.adresse~', '~app.user.codePostal~' '~app.user.ville }}</li>
+			<li><b>Téléphone fixe:</b> {{ app.user.telephone }}</li>
+			<li><b>Téléphone portable:</b> {{ app.user.portable }}</li>
+			<li><b>Site web:</b> {{ app.user.site }}</li>
+		</ul>
+		
+		<br/>
+		
+		<a class="btn btn-primary col-lg-offset-0" href="{{ path('gm_utilisateur_edit')}}">
+			Modifier ses informations
+		</a>
+	</div>
+
+{% endblock %}

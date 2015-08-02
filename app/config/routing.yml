@@ -1,0 +1,21 @@
+accueil:
+    pattern:   /accueil
+    defaults:  { _controller: GMCarnetBundle:Carnet:accueil }
+
+gm_carnet:
+    resource: "@GMCarnetBundle/Resources/config/routing.yml"
+    prefix:   /carnet
+
+login:
+    pattern:   /login
+    defaults:  { _controller: GMUtilisateurBundle:Utilisateur:login }
+
+login_check:
+    pattern:   /login_check
+
+logout:
+    pattern:   /logout
+
+inscription:
+    pattern:   /inscription
+    defaults:  { _controller: GMUtilisateurBundle:Utilisateur:inscription }

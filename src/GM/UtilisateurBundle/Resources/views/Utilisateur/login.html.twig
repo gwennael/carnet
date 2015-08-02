@@ -1,0 +1,58 @@
+{% extends "GMCarnetBundle::layout.html.twig" %}
+
+{% block title %}
+  Connexion - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+	
+	<br/>
+	<br/>
+	
+	<div class="row col-lg-offset-0">
+		<h1>Identification</h1>
+	</div>
+	
+	<br/>
+	
+	{% if error %}
+		<div class="alert alert-danger">{{ error.message }}</div>
+	{% endif %}
+  
+	<div class="well">
+		<form class="form-horizontal" action="{{ path('login_check') }}" method="post">
+		
+			<div class="form-group">
+				<label class="col-sm-3 control-label" for="username">Identifiant :</label>
+				<div class="col-sm-3"> 
+                    <input class="form-control" type="text" id="username" name="_username" value="{{ last_username }}" />
+                </div>
+			</div>
+			
+			<div class="form-group">
+				<label class="col-sm-3 control-label" for="password">Mot de passe :</label>
+				<div class="col-sm-3"> 
+                    <input class="form-control" type="password" id="password" name="_password" />
+                </div> 
+			</div>
+			
+			<div class="form-group">
+				<div class="col-sm-3 col-sm-offset-3"> 
+                    <input class="btn btn-primary" type="submit" value="Connexion" />
+                </div> 
+			</div>
+	</form>
+	
+	
+	<br/>
+  
+	<a class="col-sm-offset-3" href="{{ path('inscription') }}">
+		Pas encore inscrit ? Cliquez ici !
+	</a>
+	
+	</div>
+	
+	<br/>
+	<br/>
+	
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends "GMCarnetBundle::layout.html.twig" %}
+
+{% block title %}
+  Carnet - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+	<br/>
+	<br/>
+	
+
+	<div class="row col-lg-offset-3">
+		<h1>Carnet de {{ app.user.username }}</h1>
+	</div>
+
+	<br/>
+	
+	<style type="text/css">
+		a.liste { color:#FA8258; text-decoration: none; font-size: 110%;}
+		a.liste:visited { color:#FA8258; text-decoration: none;}
+		a.liste:hover { color:#01DFA5; text-decoration: none; }
+	</style>
+	
+	
+	<div class="row">
+		<div class="col-lg-3">
+			<a class="btn btn-info col-lg-offset-0" href="{{ path('gm_carnet_liste')}}">
+				Afficher le carnet
+			</a>
+			<br/>
+			<br/>
+			<a class="btn btn-primary col-lg-offset-0" href="{{ path('gm_carnet_ajouter')}}">
+				Ajouter un contact
+			</a>
+			<br/>
+			<br/>
+			<a class="btn btn-primary col-lg-offset-0" href="{{ path('gm_carnet_listeSupprimer')}}">
+				Supprimer des contacts
+			</a>
+		</div>
+		
+		<div class="well col-lg-9">		
+
+			{% for flashMessage in app.session.flashbag.get('notice') %}
+				<div class="flash-notice alert-success">
+					{{ flashMessage }}
+				</div>
+				<br/>
+			{% endfor %}
+		
+			{% if listeCarnet|length > 0 %}
+				<div>
+					<h4>Liste de contact :</h4>
+					<p><em>Cliquez sur le contact voulu pour en afficher ses informations</em><p>
+					<ul class="list-unstyled col-lg-offset-1" >
+						{% for carnetListe in listeCarnet %}
+							<li>¤ 
+							<a class="liste" href="{{ path('gm_carnet_detail', {'nom': carnetListe}) }}">
+								{{ carnetListe }}</li>
+							</a>
+						{% endfor %}
+					</ul>
+				</div>
+			{% else %}
+				<h4>Liste de contact :</h4>
+				<ul class="list-unstyled col-lg-offset-1" >
+					<li>Vous n'avez pas de contact.</li>
+				</ul>
+			{% endif %}
+			<br/>
+		</div>
+	</div>
+
+{% endblock %}

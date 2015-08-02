@@ -1,0 +1,28 @@
+{% extends "::layout.html.twig" %}
+
+{% block entete %}
+		<a class="btn btn-primary col-lg-3 col-lg-offset-0" href="{{ path('accueil') }}">
+			Accueil
+		</a>
+		{% if app.user %}
+			<a class="btn btn-primary col-lg-2 col-lg-offset-1" href="{{ path('gm_carnet_liste') }}">
+				Mon carnet
+			</a>
+			<a class="btn btn-primary col-lg-2 col-lg-offset-1" href="{{ path('gm_utilisateur_profil')}}">
+				Mon profil
+			</a>
+			<a class="btn btn-primary col-lg-2 col-lg-offset-1" href="{{ path('logout') }}">
+				Deconnexion
+			</a>
+		{% else %}
+			<a class="btn btn-primary col-lg-3 col-lg-offset-6" href="{{ path('login') }}">
+				Connexion / Inscription
+			</a>
+		{% endif %}
+{% endblock %}
+
+{% block body %}
+  {% block gmcarnet_body %}
+  {% endblock %}
+
+{% endblock %}

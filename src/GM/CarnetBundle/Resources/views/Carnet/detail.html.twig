@@ -1,0 +1,51 @@
+{% extends "GMCarnetBundle::layout.html.twig" %}
+
+{% block title %}
+  Details - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+	<br/>
+	<br/>
+	
+	<div class="row col-lg-offset-0">
+		<h1>Détails des informations de {{ utilisateur.username }}</h1>
+	</div>
+	
+	<br/>
+	<div class="well">		
+		<ul class="list-unstyled">
+			{% if utilisateur.email != '' or utilisateur.adresse != '' or utilisateur.telephone != 0 or utilisateur.portable != 0 or utilisateur.site != '' %}
+				{% if utilisateur.email != '' %}
+					<li><b>E-mail:</b> {{ utilisateur.email }}</li>
+				{% endif %}
+				
+				{% if utilisateur.adresse != '' and utilisateur.codePostal != 0 and utilisateur.ville != ''%}
+					<li><b>Adresse postale:</b> {{ app.user.adresse~', '~app.user.codePostal~' '~app.user.ville }}</li>
+				{% endif %}
+				
+				{% if utilisateur.telephone != 0 %}
+					<li><b>Téléphone fixe:</b> {{ utilisateur.telephone }}</li>
+				{% endif %}
+				
+				{% if utilisateur.portable != 0 %}
+					<li><b>Téléphone portable:</b> {{ utilisateur.portable }}</li>
+				{% endif %}
+				
+				{% if utilisateur.site != '' %}
+					<li><b>Site web:</b> {{ utilisateur.site }}</li>
+				{% endif %}
+			{% else %}
+				<h3>Aucune information n'est disponible</h3>
+			{% endif %}
+		</ul>
+		
+		<br/>
+		
+		<a class="btn btn-primary col-lg-offset-0" href="{{ path('gm_carnet_liste')}}">
+			Retour
+		</a>
+	</div>
+
+{% endblock %}

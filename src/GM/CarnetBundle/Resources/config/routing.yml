@@ -1,0 +1,36 @@
+gm_carnet_accueil:
+    path:      /
+    defaults:  { _controller: GMCarnetBundle:Carnet:accueil}
+
+gm_utilisateur_profil:
+    path:      /profil
+    defaults:  { _controller: GMUtilisateurBundle:Utilisateur:profil}
+
+gm_utilisateur_edit:
+    path:      /profil/edit
+    defaults:  { _controller: GMUtilisateurBundle:Utilisateur:editProfil}
+
+gm_carnet_liste:
+    path:      /liste
+    defaults:  { _controller: GMCarnetBundle:Carnet:liste}
+
+gm_carnet_ajouter:
+    path:      /liste/ajouter
+    defaults:  { _controller: GMCarnetBundle:Carnet:ajouter}
+
+gm_carnet_detail:
+    path:      /liste/detail/{nom}
+    defaults:  { _controller: GMCarnetBundle:Carnet:detail}
+
+gm_carnet_listeSupprimer:
+    path:      /liste/supprimer
+    defaults:  { _controller: GMCarnetBundle:Carnet:listeSupprimer}
+
+gm_carnet_confirmSupprimer:
+    path:      /liste/supprimer/confirm
+    defaults:  { _controller: GMCarnetBundle:Carnet:confirmSupprimer}
+
+gm_carnet_supprimer:
+    path:      /liste/supprimer/confirm/ok
+    defaults:  { _controller: GMCarnetBundle:Carnet:supprimer}
+
