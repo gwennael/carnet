@@ -22,41 +22,41 @@
 		<div class="form-group">
 			{{ form_label(formulaire.username, "Nom d'utilisateur", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
 			
-			{{ form_errors(formulaire.username) }}
-			
 			<div class="col-sm-4">
 				{{ form_widget(formulaire.username, {'attr': {'class': 'form-control'}}) }}
 			</div>
+			
+			{{ form_errors(formulaire.username) }}
 		</div>
 		
 		<div class="form-group">
 			{{ form_label(formulaire.password.password, "Mot de passe", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
 			
-			{{ form_errors(formulaire.password.password) }}
-			
 			<div class="col-sm-4">
 				{{ form_widget(formulaire.password.password, {'attr': {'class': 'form-control'}}) }}
 			</div>
+			
+			{{ form_errors(formulaire.password.password) }}
 		</div>
 		
 		<div class="form-group">
 			{{ form_label(formulaire.password.confirm, "Confirmation", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
 			
-			{{ form_errors(formulaire.password.confirm) }}
-			
 			<div class="col-sm-4">
 				{{ form_widget(formulaire.password.confirm, {'attr': {'class': 'form-control'}}) }}
 			</div>
+			
+			{{ form_errors(formulaire.password.confirm) }}
 		</div>
 		
 		<div class="form-group">
 			{{ form_label(formulaire.email, "E-mail", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
 			
-			{{ form_errors(formulaire.email) }}
-			
 			<div class="col-sm-4">
 				{{ form_widget(formulaire.email, {'attr': {'class': 'form-control'}}) }}
 			</div>
+			
+			{{ form_errors(formulaire.email) }}
 		</div>
 		
 		<div class="form-group">
