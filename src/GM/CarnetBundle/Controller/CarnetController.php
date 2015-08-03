@@ -22,11 +22,6 @@ class CarnetController extends Controller
 		return $this->render('GMCarnetBundle:Carnet:accueil.html.twig');
 	}
 	
-	public function indexAction()
-	{
-		return $this->render('GMCarnetBundle:Carnet:index.html.twig');
-	}
-	
 	public function listeAction()
 	{		
 		$eManager = $this->getDoctrine()->getManager();
@@ -177,7 +172,6 @@ class CarnetController extends Controller
 		
 		for($i=0;$i<$taille;$i++){
 			$contactSup = ''.$nomUtilisateur.$suppression[$i];
-			echo $contactSup;
 			
 			$eManager->getRepository('GMCarnetBundle:CarnetListe')->supprimerCarnetListe($contactSup);
 

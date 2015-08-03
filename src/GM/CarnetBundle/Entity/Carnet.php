@@ -6,7 +6,6 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Carnet
- *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="GM\CarnetBundle\Entity\CarnetRepository")
  */

@@ -22,7 +22,7 @@
 				{% endif %}
 				
 				{% if utilisateur.adresse != '' and utilisateur.codePostal != 0 and utilisateur.ville != ''%}
-					<li><b>Adresse postale:</b> {{ app.user.adresse~', '~app.user.codePostal~' '~app.user.ville }}</li>
+					<li><b>Adresse postale:</b> {{ utilisateur.adresse~', '~utilisateur.codePostal~' '~utilisateur.ville }}</li>
 				{% endif %}
 				
 				{% if utilisateur.telephone != 0 %}
