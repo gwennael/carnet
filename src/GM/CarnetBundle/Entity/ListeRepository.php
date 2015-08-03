@@ -20,4 +20,13 @@ class ListeRepository extends EntityRepository
 	
 		return $results;
 	}
+	
+	public function verificationPresence($name)
+	{
+		$query = $this->_em->createQuery('SELECT l.name FROM GMCarnetBundle:Liste l WHERE l.name = :name');
+		$query->setParameter('name', $name);
+		$results = $query->getOneOrNullResult();
+	
+		return $results;
+	}
 }

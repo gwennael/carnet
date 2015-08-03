@@ -22,11 +22,6 @@ class CarnetController extends Controller
 		return $this->render('GMCarnetBundle:Carnet:accueil.html.twig');
 	}
 	
-	public function indexAction()
-	{
-		return $this->render('GMCarnetBundle:Carnet:index.html.twig');
-	}
-	
 	public function listeAction()
 	{		
 		$eManager = $this->getDoctrine()->getManager();
@@ -62,12 +57,17 @@ class CarnetController extends Controller
 		if($formulaire->handleRequest($request)->isValid()){
 			
 			$username = $formulaire->get('name')->getData();
+			
+			$verifPresence = $eManager->getRepository('GMCarnetBundle:Liste')->verificationPresence($username);
+			
+			if ($verifPresence === null) {
+				$request->getSession()->getFlashBag()->add('erreur', "Le contact ".$username." n'existe pas ! Veuillez entrer un contact valide.");
+			
+				return $this->redirect($this->generateUrl('gm_carnet_ajouter'));
+			}
+			
 			$idListe = $eManager->getRepository('GMCarnetBundle:Liste')->getIdListe($username);
 			$liste = $eManager->getRepository('GMCarnetBundle:Liste')->find($idListe);
-			
-			if (null === $liste) {
-				throw new NotFoundHttpException("L'utilisateur ".$username." n'existe pas.");
-			}
 			
 			$carnetListe = new CarnetListe();
 			
@@ -112,10 +112,13 @@ class CarnetController extends Controller
 		$eManager = $this->getDoctrine()->getManager();
 		
 		$idUtilisateur = $eManager->getRepository('GMUtilisateurBundle:Utilisateur')->getIdUtilisateur($nom);
+		
 		$utilisateur = $eManager->getRepository('GMUtilisateurBundle:Utilisateur')->find($idUtilisateur);
 
-		if (null === $utilisateur) {
-		  throw new NotFoundHttpException("L'utilisateur d'id ".$idUtilisateur." n'existe pas.");
+		if($utilisateur == null){
+			$request->getSession()->getFlashBag()->add('fail', 'Le contact '.$nom.' n\'existe pas.');
+		
+			return $this->redirect($this->generateUrl('gm_carnet_liste'));
 		}
 		
 		return $this->render('GMCarnetBundle:Carnet:detail.html.twig', array(
@@ -169,7 +172,6 @@ class CarnetController extends Controller
 		
 		for($i=0;$i<$taille;$i++){
 			$contactSup = ''.$nomUtilisateur.$suppression[$i];
-			echo $contactSup;
 			
 			$eManager->getRepository('GMCarnetBundle:CarnetListe')->supprimerCarnetListe($contactSup);
 

@@ -43,10 +43,9 @@
 		<div class="well col-lg-9">		
 
 			{% for flashMessage in app.session.flashbag.get('notice') %}
-				<div class="flash-notice alert-success">
+				<div class="flash-notice alert alert-success">
 					{{ flashMessage }}
 				</div>
-				<br/>
 			{% endfor %}
 		
 			{% if listeCarnet|length > 0 %}
@@ -56,7 +55,7 @@
 					<ul class="list-unstyled col-lg-offset-1" >
 						{% for carnetListe in listeCarnet %}
 							<li>¤ 
-							<a class="liste" href="{{ path('gm_carnet_detail', {'nom': carnetListe}) }}">
+							<a class="liste" href="{{ path('gm_carnet_detail', {'nom': carnetListe }) }}">
 								{{ carnetListe }}</li>
 							</a>
 						{% endfor %}

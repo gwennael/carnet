@@ -6,7 +6,6 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Liste
- *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="GM\CarnetBundle\Entity\ListeRepository")
  */

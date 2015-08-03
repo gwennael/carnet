@@ -21,13 +21,4 @@ class CarnetRepository extends EntityRepository
 	
 		return $results;
 	}
-	
-	public function verificationPresence($username)
-	{
-		$query = $this->_em->createQuery('SELECT c.username FROM GMCarnetBundle:Carnet c WHERE c.username = :username');
-		$query->setParameter('username', $username);
-		$results = $query->getOneOrNullResult();
-	
-		return $results;
-	}
 }
