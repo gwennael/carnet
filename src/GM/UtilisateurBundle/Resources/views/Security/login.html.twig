@@ -1,10 +1,8 @@
-{% extends "GMCarnetBundle::layout.html.twig" %}
+{% extends "FOSUserBundle::layout.html.twig" %}
 
-{% block title %}
-  Connexion - {{ parent() }}
-{% endblock %}
+{% trans_default_domain 'FOSUserBundle' %}
 
-{% block body %}
+{% block fos_user_content %}	
 	
 	<br/>
 	<br/>
@@ -20,8 +18,10 @@
 	{% endif %}
   
 	<div class="well">
-		<form class="form-horizontal" action="{{ path('login_check') }}" method="post">
+		<form class="form-horizontal" action="{{ path('fos_user_security_check') }}" method="post">
 		
+			<input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+			
 			<div class="form-group">
 				<label class="col-sm-3 control-label" for="username">Identifiant :</label>
 				<div class="col-sm-3"> 
@@ -32,7 +32,14 @@
 			<div class="form-group">
 				<label class="col-sm-3 control-label" for="password">Mot de passe :</label>
 				<div class="col-sm-3"> 
-                    <input class="form-control" type="password" id="password" name="_password" />
+                    <input class="form-control" type="password" id="password" name="_password" required="required" />
+                </div> 
+			</div>
+			
+			<div class="form-group">
+				<label class="col-sm-3 control-label" for="password">Se souvenir :</label>
+				<div class="col-sm-3"> 
+                    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
                 </div> 
 			</div>
 			
@@ -46,13 +53,20 @@
 	
 	<br/>
   
-	<a class="col-sm-offset-3" href="{{ path('inscription') }}">
+	<a class="col-sm-offset-3" href="{{ path('fos_user_registration_register') }}">
 		Pas encore inscrit ? Cliquez ici !
+	</a>
+	
+	<br/>
+	
+	<a class="col-sm-offset-3" href="{{ path('fos_user_resetting_request') }}">
+		Mot de passe oublié ? Cliquez ici ! (Ne fonctionne pas. Aucun serveur SMTP.)
 	</a>
 	
 	</div>
 	
 	<br/>
 	<br/>
-	
-{% endblock %}
+{% endblock fos_user_content %}
+
+

@@ -78,3 +78,24 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+fos_user:
+    db_driver:     orm
+    firewall_name: main
+    user_class:    GM\UtilisateurBundle\Entity\Utilisateur
+    registration:
+        confirmation:
+            enabled: false
+    from_email:
+        address:        resetting@gmcarnet.com
+        sender_name:    Poladresse
+    registration:
+        confirmation:
+            from_email:
+                address:        registration@gmcarnet.com
+                sender_name:    Poladresse Registration
+    resetting:
+        email:
+            from_email:
+                address:        resetting@gmcarnet.com
+                sender_name:    Poladresse Resetting

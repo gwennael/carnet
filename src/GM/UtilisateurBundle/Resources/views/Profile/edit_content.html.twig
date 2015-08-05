@@ -1,0 +1,113 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+	<br/>
+	<br/>
+	
+	<div class="row col-lg-offset-0">
+		<h1>Modification du profil</h1>
+	</div>
+	
+	<br/>
+	<div class="well">
+	
+		<br/>
+		
+		
+		{{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+		{{ form_errors(form) }}
+		
+		<div class="form-group">
+			{{ form_label(form.email, "E-mail", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+			
+			<div class="col-sm-4">
+				{{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+			</div>
+			
+			{{ form_errors(form.email) }}
+		</div>
+		
+		<div class="form-group">
+			{{ form_label(form.adresse, "Adresse", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+			
+			<div class="col-sm-4">
+				{{ form_widget(form.adresse, {'attr': {'class': 'form-control'}}) }}
+			</div>
+			
+			{{ form_errors(form.adresse) }}
+		</div>
+		
+		<div class="form-group">
+			{{ form_label(form.codePostal, "Code postal", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+			
+			<div class="col-sm-4">
+				{{ form_widget(form.codePostal, {'attr': {'class': 'form-control'}}) }}
+			</div>
+			
+			{{ form_errors(form.codePostal) }}
+		</div>
+		
+		<div class="form-group">
+			{{ form_label(form.ville, "Ville", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+			
+			<div class="col-sm-4">
+				{{ form_widget(form.ville, {'attr': {'class': 'form-control'}}) }}
+			</div>
+			
+			{{ form_errors(form.ville) }}
+		</div>
+		
+		<div class="form-group">
+			{{ form_label(form.telephone, "Téléphone fixe", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+			
+			<div class="col-sm-4">
+				{{ form_widget(form.telephone, {'attr': {'class': 'form-control'}}) }}
+			</div>
+			
+			{{ form_errors(form.telephone) }}
+		</div>
+		
+		<div class="form-group">
+			{{ form_label(form.portable, "Téléphone portable", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+			
+			<div class="col-sm-4">
+				{{ form_widget(form.portable, {'attr': {'class': 'form-control'}}) }}
+			</div>
+			
+			{{ form_errors(form.portable) }}
+		</div>
+		
+		<div class="form-group">
+			{{ form_label(form.site, "Site web", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+			
+			<div class="col-sm-4">
+				{{ form_widget(form.site, {'attr': {'class': 'form-control'}}) }}
+			</div>
+			
+			{{ form_errors(form.site) }}
+		</div>
+		
+		<div class="form-group">
+			{{ form_label(form.current_password, "Mot de passe courant", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+			
+			<div class="col-sm-4">
+				{{ form_widget(form.current_password, {'attr': {'class': 'form-control'}}) }}
+			</div>
+			
+			{{ form_errors(form.current_password) }}
+		</div>
+		
+		<div class="form-group">
+			<div class="col-sm-4 col-sm-offset-3">
+				{{ form_widget(form.Sauvegarder, {'attr': {'class': 'btn btn-primary'}}) }}
+			</div>
+		</div>
+		
+		{{ form_rest(form) }}	
+		
+		<br/>
+		<br/>
+		
+		<a class="btn btn-primary col-lg-offset-0" href="{{ path('fos_user_profile_show')}}">
+			Annuler
+		</a>
+	</div>

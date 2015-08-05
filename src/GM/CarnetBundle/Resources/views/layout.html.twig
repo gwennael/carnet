@@ -8,14 +8,14 @@
 			<a class="btn btn-primary col-lg-2 col-lg-offset-1" href="{{ path('gm_carnet_liste') }}">
 				Mon carnet
 			</a>
-			<a class="btn btn-primary col-lg-2 col-lg-offset-1" href="{{ path('gm_utilisateur_profil')}}">
+			<a class="btn btn-primary col-lg-2 col-lg-offset-1" href="{{ path('fos_user_profile_show')}}">
 				Mon profil
 			</a>
-			<a class="btn btn-primary col-lg-2 col-lg-offset-1" href="{{ path('logout') }}">
+			<a class="btn btn-primary col-lg-2 col-lg-offset-1" href="{{ path('fos_user_security_logout') }}">
 				Deconnexion
 			</a>
 		{% else %}
-			<a class="btn btn-primary col-lg-3 col-lg-offset-6" href="{{ path('login') }}">
+			<a class="btn btn-primary col-lg-3 col-lg-offset-6" href="{{ path('fos_user_security_login') }}">
 				Connexion / Inscription
 			</a>
 		{% endif %}

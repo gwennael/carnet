@@ -2,24 +2,25 @@ accueil:
     pattern:   /
     defaults:  { _controller: GMCarnetBundle:Carnet:accueil }
 
-gm_utilisateur:
-    resource: "@GMUtilisateurBundle/Resources/config/routing.yml"
-    prefix:   /
-
 gm_carnet:
     resource: "@GMCarnetBundle/Resources/config/routing.yml"
     prefix:   /carnet
 
-login:
-    pattern:   /login
-    defaults:  { _controller: GMUtilisateurBundle:Utilisateur:login }
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 
-login_check:
-    pattern:   /login_check
+fos_user_profile:
+    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+    prefix: /profil
 
-logout:
-    pattern:   /logout
+fos_user_register:
+    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+    prefix: /inscription
 
-inscription:
-    pattern:   /inscription
-    defaults:  { _controller: GMUtilisateurBundle:Utilisateur:inscription }
+fos_user_resetting:
+    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
+    prefix: /resetting
+
+fos_user_change_password:
+    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+    prefix: /profil

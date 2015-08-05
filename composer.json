@@ -28,7 +28,8 @@
         "ircmaxell/password-compat": "*",
 		"sensio/generator-bundle": "2.*",
 		"doctrine/doctrine-fixtures-bundle": "2.2.*",
-		"stof/doctrine-extensions-bundle": "~1.1"
+		"stof/doctrine-extensions-bundle": "~1.1",
+		"friendsofsymfony/user-bundle": "dev-master"
     },
 	
 	"scripts": {

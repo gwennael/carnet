@@ -1,4 +1,1 @@
 services:
-#    gm_utilisateur.example:
-#        class: GM\UtilisateurBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]

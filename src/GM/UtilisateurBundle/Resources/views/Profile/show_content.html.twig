@@ -1,10 +1,4 @@
-{% extends "GMCarnetBundle::layout.html.twig" %}
-
-{% block title %}
-  Mon profil - {{ parent() }}
-{% endblock %}
-
-{% block body %}
+{% trans_default_domain 'FOSUserBundle' %}
 
 	<br/>
 	<br/>
@@ -15,7 +9,7 @@
 	
 	<br/>
 	<div class="well">
-	
+		
 		{% for flashMessage in app.session.flashbag.get('notice') %}
 			<div class="flash-notice alert alert-success">
 				{{ flashMessage }}
@@ -34,9 +28,11 @@
 		
 		<br/>
 		
-		<a class="btn btn-primary col-lg-offset-0" href="{{ path('gm_utilisateur_edit')}}">
+		<a class="btn btn-primary col-lg-offset-0" href="{{ path('fos_user_profile_edit')}}">
 			Modifier ses informations
 		</a>
+		
+		<a class="btn btn-primary col-lg-offset-0" href="{{ path('fos_user_change_password')}}">
+			Modifier som mot de passe
+		</a>
 	</div>
-
-{% endblock %}
